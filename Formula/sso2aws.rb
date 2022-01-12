@@ -5,24 +5,27 @@
 class Sso2aws < Formula
   desc ""
   homepage ""
-  version "0.1.3"
-  bottle :unneeded
+  version "0.1.4"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/PennState/sso2aws/releases/download/v0.1.3/sso2aws_0.1.3_darwin_amd64.tar.gz"
-      sha256 "0a8dd29beace8aeac21fa77dee3874e112619224f8c8a7e79dc089b5a261ad43"
+      url "https://github.com/PennState/sso2aws/releases/download/v0.1.4/sso2aws_0.1.4_darwin_amd64.tar.gz"
+      sha256 "5bd63507757d9aa0287ba2e668c458425439b310430aec46a1199e4fce309db9"
+
+      def install
+        bin.install "sso2aws"
+      end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/PennState/sso2aws/releases/download/v0.1.3/sso2aws_0.1.3_linux_amd64.tar.gz"
-      sha256 "3a9628e811a353f59e536967f0c930d25e0406fa40751f722e094ffa0aafac65"
-    end
-  end
+      url "https://github.com/PennState/sso2aws/releases/download/v0.1.4/sso2aws_0.1.4_linux_amd64.tar.gz"
+      sha256 "6e6e59481d129d3693607ef2a60b3a4d04bb04ed0a5acea3b81d5607508f0986"
 
-  def install
-    bin.install "sso2aws"
+      def install
+        bin.install "sso2aws"
+      end
+    end
   end
 end
