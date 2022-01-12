@@ -5,24 +5,27 @@
 class Gitlabctl < Formula
   desc ""
   homepage ""
-  version "0.1.14"
-  bottle :unneeded
+  version "0.1.15"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/PennState/gitlabctl/releases/download/v0.1.14/gitlabctl_0.1.14_darwin_amd64.tar.gz"
-      sha256 "58791673f73fc87600a2098e4cec31777a0fae0e165cb6b7e4fad1a4f264039b"
+      url "https://github.com/PennState/gitlabctl/releases/download/v0.1.15/gitlabctl_0.1.15_darwin_amd64.tar.gz"
+      sha256 "0c78d57905cfe7d47d2c37ae0595b1a5ca6e9e7f6e1da4dfb80fb6b2ddc41dd3"
+
+      def install
+        bin.install "gitlabctl"
+      end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/PennState/gitlabctl/releases/download/v0.1.14/gitlabctl_0.1.14_linux_amd64.tar.gz"
-      sha256 "99e11bf7674d97b7f765b9f85f615c981e26b41ec2b15b27bab9f37fcfde9f47"
-    end
-  end
+      url "https://github.com/PennState/gitlabctl/releases/download/v0.1.15/gitlabctl_0.1.15_linux_amd64.tar.gz"
+      sha256 "6c6f0291bcf1531f5703a08eca55b78ba2fe47249efa11c55e5888f13a952f21"
 
-  def install
-    bin.install "gitlabctl"
+      def install
+        bin.install "gitlabctl"
+      end
+    end
   end
 end
