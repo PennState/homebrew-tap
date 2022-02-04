@@ -5,12 +5,20 @@
 class Sso2aws < Formula
   desc ""
   homepage ""
-  version "0.1.4"
+  version "0.1.5"
 
   on_macos do
+    if Hardware::CPU.arm?
+      url "https://github.com/PennState/sso2aws/releases/download/v0.1.5/sso2aws_0.1.5_darwin_arm64.tar.gz"
+      sha256 "2d5eee1483d15c6da5eee306f64e51ece8519ffc93eee617f129c95cdf8f6e84"
+
+      def install
+        bin.install "sso2aws"
+      end
+    end
     if Hardware::CPU.intel?
-      url "https://github.com/PennState/sso2aws/releases/download/v0.1.4/sso2aws_0.1.4_darwin_amd64.tar.gz"
-      sha256 "5bd63507757d9aa0287ba2e668c458425439b310430aec46a1199e4fce309db9"
+      url "https://github.com/PennState/sso2aws/releases/download/v0.1.5/sso2aws_0.1.5_darwin_amd64.tar.gz"
+      sha256 "f4f183b9fc04bb0659e8f13ed4dec3215f6ad5610fb020507ba5d824166d248e"
 
       def install
         bin.install "sso2aws"
@@ -20,8 +28,16 @@ class Sso2aws < Formula
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/PennState/sso2aws/releases/download/v0.1.4/sso2aws_0.1.4_linux_amd64.tar.gz"
-      sha256 "6e6e59481d129d3693607ef2a60b3a4d04bb04ed0a5acea3b81d5607508f0986"
+      url "https://github.com/PennState/sso2aws/releases/download/v0.1.5/sso2aws_0.1.5_linux_amd64.tar.gz"
+      sha256 "20bd9998f883878e71c5854c081efe1015c87b9f8e7e4e900e70cc1fa8a6ce33"
+
+      def install
+        bin.install "sso2aws"
+      end
+    end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/PennState/sso2aws/releases/download/v0.1.5/sso2aws_0.1.5_linux_arm64.tar.gz"
+      sha256 "18641fa8db02bf3dc846134756feb8d34601680165887a060f3668bc177b8523"
 
       def install
         bin.install "sso2aws"
